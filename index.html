@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NISAお悩み研究所｜みやFP相談</title>
+  <meta name="description" content="独立系FP・みやFPのNISA相談。赤字家計から3年で1,000万円を達成した実体験をもとに、NISA・家計改善・老後資金・保険見直しをトータルでサポート。販売勧誘なし・全国対応。">
+  <meta property="og:title" content="NISAお悩み研究所｜みやFP相談">
+  <meta property="og:description" content="赤字家計から3年で1,000万円を貯めた元電気工事士のFPが、NISAを軸にあなたのお金と人生をまるごと設計します">
+  <meta property="og:url" content="https://miya-fp.com">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1e3a5f;
+      --navy-light: #2a4f80;
+      --bg-light: #f5f6f8;
+      --white: #ffffff;
+      --text: #2d2d2d;
+      --text-light: #666;
+      --border: #e0e3ea;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.8;
+      background: var(--white);
+    }
+
+    /* ─── Utility ─── */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 88px 0; }
+    .section-title {
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 52px;
+      line-height: 1.7;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Header ─── */
+    #site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      padding: 0 24px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .site-logo {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--navy);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .site-logo span { color: var(--navy-light); }
+    .header-nav { display: flex; gap: 28px; list-style: none; }
+    .header-nav a {
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .header-nav a:hover { color: var(--navy); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 8px 0;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      padding: 14px 24px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .mobile-nav a:hover { background: var(--bg-light); color: var(--navy); }
+
+    /* ─── Hero ─── */
+    #hero {
+      background: var(--bg-light);
+      padding: 140px 0 88px;
+      text-align: center;
+    }
+    .hero-main {
+      font-size: clamp(1.75rem, 5vw, 2.75rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.45;
+      margin-bottom: 28px;
+    }
+    .hero-sub {
+      font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+      color: var(--text-light);
+      line-height: 1.9;
+      margin-bottom: 40px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 18px 44px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s;
+      box-shadow: 0 6px 24px rgba(30,58,95,0.25);
+    }
+    .btn-primary:hover { background: var(--navy-light); transform: translateY(-2px); }
+    .hero-note {
+      margin-top: 16px;
+      font-size: 0.82rem;
+      color: var(--text-light);
+      letter-spacing: 0.03em;
+    }
+    .hero-note i { margin: 0 4px; color: var(--navy); }
+
+    /* ─── Concerns ─── */
+    #concerns { background: var(--white); }
+    .concerns-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .concern-card {
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .concern-card i {
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ─── Service ─── */
+    #service { background: var(--bg-light); }
+    .service-cards {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      flex: 1 1 180px;
+      max-width: 200px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s;
+    }
+    .service-card:hover { transform: translateY(-4px); }
+    .service-icon { font-size: 2rem; margin-bottom: 12px; }
+    .service-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .service-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.6; }
+
+    /* ─── Philosophy ─── */
+    #philosophy {
+      background: var(--navy);
+      padding: 88px 0;
+    }
+    #philosophy .section-title { color: var(--white); }
+    #philosophy .section-sub { color: rgba(255,255,255,0.75); }
+    .philosophy-label {
+      text-align: center;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .philosophy-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .philosophy-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .philosophy-card .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .philosophy-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .philosophy-card p { font-size: 0.87rem; color: var(--text-light); line-height: 1.75; }
+
+    /* ─── Achievement ─── */
+    #achievement { background: var(--white); }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    .stat-card {
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      padding: 32px 16px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .stat-label { font-size: 0.82rem; color: var(--text-light); font-weight: 500; }
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .reason-card {
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .reason-card i { font-size: 1.5rem; color: var(--navy); margin-bottom: 12px; }
+    .reason-card h3 { font-size: 0.98rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .reason-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.7; }
+    .achievement-note {
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+    .achievement-note i { color: #f5a623; margin-right: 4px; }
+
+    /* ─── Voices ─── */
+    #voice { background: var(--bg-light); }
+    .voices-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .voice-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .voice-quote-icon {
+      font-size: 2rem;
+      color: rgba(30,58,95,0.12);
+      margin-bottom: 12px;
+    }
+    .voice-stars {
+      color: var(--navy);
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+    .voice-text {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .voice-author {
+      text-align: right;
+      font-size: 0.82rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    /* ─── Profile ─── */
+    #profile { background: var(--bg-light); }
+    .profile-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .profile-photo-wrap { text-align: center; flex-shrink: 0; }
+    .profile-img {
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid var(--navy);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      display: block;
+    }
+    .profile-avatar {
+      display: none;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 3.5rem;
+      font-weight: 700;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid var(--navy);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .profile-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .profile-title {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .profile-quote {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--navy);
+      border-left: 4px solid var(--navy);
+      padding-left: 16px;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+    .profile-story {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+    .profile-story p { margin-bottom: 12px; }
+    .profile-story .highlight {
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .qualifications {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+    .qualifications li {
+      font-size: 0.85rem;
+      color: var(--text);
+      padding: 4px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .qualifications li span { color: var(--navy); }
+    .btn-youtube {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px solid var(--navy);
+      color: var(--navy);
+      background: var(--white);
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-youtube:hover { background: var(--navy); color: var(--white); }
+    .btn-coconala {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      background: var(--navy);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: background 0.25s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(30,58,95,0.2);
+    }
+    .btn-coconala i { color: #f5a623; margin-bottom: 2px; }
+    .btn-coconala-main { display: flex; align-items: center; gap: 8px; }
+    .btn-coconala-sub { font-size: 0.75rem; font-weight: 400; opacity: 0.82; letter-spacing: 0.01em; }
+    .btn-coconala:hover { background: var(--navy-light); transform: translateY(-2px); }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 16px;
+      cursor: pointer;
+      background: var(--white);
+      border-left: 4px solid var(--navy);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      user-select: none;
+      transition: background 0.2s;
+      gap: 12px;
+    }
+    .faq-question:hover { background: var(--bg-light); }
+    .faq-icon {
+      font-size: 1.1rem;
+      color: var(--navy);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .faq-question.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      display: none;
+      padding: 16px 20px 20px;
+      background: var(--bg-light);
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.85;
+      border-left: 4px solid transparent;
+    }
+    .faq-answer.open { display: block; }
+
+    /* ─── Contact ─── */
+    #contact { background: var(--bg-light); }
+    .contact-lead {
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.9;
+      margin-bottom: 40px;
+    }
+    .form-wrap {
+      max-width: 620px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 40px 36px;
+    }
+    .form-group { margin-bottom: 22px; }
+    .form-label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .form-label .required {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.72rem;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .form-label .optional {
+      display: inline-block;
+      background: #ccc;
+      color: var(--white);
+      font-size: 0.72rem;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--navy);
+    }
+    .form-select-wrap { position: relative; }
+    .form-select-wrap::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      pointer-events: none;
+      font-size: 0.75rem;
+    }
+    .form-textarea { resize: vertical; min-height: 100px; }
+    .btn-submit {
+      width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      padding: 16px;
+      border-radius: 50px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(30,58,95,0.2);
+    }
+    .btn-submit:hover { background: var(--navy-light); transform: translateY(-1px); }
+    .contact-privacy {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 16px;
+    }
+    .contact-privacy i { margin-right: 4px; }
+
+    /* ─── Footer ─── */
+    #site-footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.85);
+      padding: 48px 24px 32px;
+      text-align: center;
+    }
+    .footer-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .footer-nav {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      margin-bottom: 28px;
+    }
+    .footer-nav a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--white); }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      .header-nav { display: none; }
+      .hamburger { display: flex; }
+
+      .concerns-grid { grid-template-columns: repeat(2, 1fr); }
+      .service-cards { gap: 12px; }
+      .service-card { max-width: none; flex: 1 1 140px; }
+      .philosophy-cards { grid-template-columns: 1fr; gap: 16px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .reasons-grid { grid-template-columns: 1fr; }
+      .voices-grid { grid-template-columns: 1fr; }
+      .profile-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .profile-photo-wrap { display: flex; justify-content: center; }
+      .profile-quote { text-align: left; }
+      .form-wrap { padding: 28px 20px; }
+      .footer-nav { gap: 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .concerns-grid { grid-template-columns: 1fr; }
+      .service-card { flex: 1 1 100%; max-width: 100%; }
+    }
+
+    /* ─── Price ─── */
+    #price { background: var(--bg-light); }
+    .price-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+      align-items: start;
+    }
+    .price-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      border: 2px solid transparent;
+      transition: transform 0.25s;
+    }
+    .price-card:hover { transform: translateY(-4px); }
+    .price-card.featured {
+      border-color: var(--navy);
+      transform: scale(1.03);
+    }
+    .price-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+    .price-badge {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px;
+      letter-spacing: 0.05em;
+    }
+    .price-card-body { padding: 28px 24px; }
+    .price-sub { font-size: 0.8rem; color: var(--text-light); margin-bottom: 6px; font-weight: 500; }
+    .price-title { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+    .price-amount {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+    .price-num { font-size: 2.2rem; font-weight: 700; color: var(--navy); line-height: 1; }
+    .price-unit { font-size: 0.88rem; color: var(--text-light); }
+    .price-note-small { font-size: 0.75rem; color: var(--text-light); margin-bottom: 20px; }
+    .price-list { list-style: none; margin-bottom: 20px; }
+    .price-list li {
+      font-size: 0.87rem;
+      color: var(--text);
+      padding: 5px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+    .price-list li::before {
+      content: '✓';
+      color: var(--navy);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .price-caveat { font-size: 0.75rem; color: var(--text-light); margin-bottom: 20px; line-height: 1.6; }
+    .btn-price {
+      display: block;
+      text-align: center;
+      background: var(--navy);
+      color: var(--white);
+      padding: 12px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-price:hover { background: var(--navy-light); transform: translateY(-1px); }
+    .price-notes {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      line-height: 1.9;
+      margin-bottom: 40px;
+    }
+    .price-cta {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .price-cta p {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      color: rgba(255,255,255,0.92);
+    }
+    .btn-price-white {
+      display: inline-block;
+      background: var(--white);
+      color: var(--navy);
+      padding: 14px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-price-white:hover { opacity: 0.9; transform: translateY(-2px); }
+    @media (max-width: 768px) {
+      .price-cards { grid-template-columns: 1fr; }
+      .price-card.featured { transform: scale(1); }
+      .price-card.featured:hover { transform: translateY(-4px); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="#" class="site-logo">NISAお悩み研究所｜<span>みやFP相談</span></a>
+    <nav>
+      <ul class="header-nav">
+        <li><a href="#service">サービス</a></li>
+        <li><a href="#achievement">実績</a></li>
+        <li><a href="#profile">プロフィール</a></li>
+        <li><a href="#price">料金</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="#service" class="mobile-link">サービス</a>
+    <a href="#achievement" class="mobile-link">実績</a>
+    <a href="#profile" class="mobile-link">プロフィール</a>
+    <a href="#price" class="mobile-link">料金</a>
+    <a href="#faq" class="mobile-link">FAQ</a>
+    <a href="#contact" class="mobile-link">お問い合わせ</a>
+  </nav>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="container">
+    <div class="fade-in">
+      <p class="hero-main">投資の相談ではなく、<br>人生の相談をしませんか。</p>
+      <p class="hero-sub">
+        赤字家計から3年で1,000万円を貯めた元電気工事士のFPが<br>
+        NISAを軸に、あなたのお金と人生をまるごと設計します。<br>
+        販売・勧誘は一切行いません。
+      </p>
+      <a href="#contact" class="btn-primary">まずは無料でご相談ください</a>
+      <p class="hero-note">
+        <i class="fa-solid fa-lock"></i>秘密厳守
+        <i class="fa-solid fa-ban"></i>勧誘なし
+        <i class="fa-solid fa-earth-asia"></i>全国対応（オンライン・対面）
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONCERNS ═══ -->
+<section id="concerns" class="section">
+  <div class="container">
+    <h2 class="section-title fade-in">こんなお悩みありませんか？</h2>
+    <p class="section-sub fade-in">一人で抱えていた「お金の不安」、一緒に整理しましょう。</p>
+    <div class="concerns-grid">
+      <div class="concern-card fade-in">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>NISAを始めたいが、何から手をつければいいかわからない</span>
+      </div>
+      <div class="concern-card fade-in">
+        <i class="fa-solid fa-scale-balanced"></i>
+        <span>iDeCoとNISAの使い分けが知りたい</span>
+      </div>
+      <div class="concern-card fade-in">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>老後の出口戦略までシミュレーションしたい</span>
+      </div>
+      <div class="concern-card fade-in">
+        <i class="fa-solid fa-piggy-bank"></i>
+        <span>家計を見直して積立投資の金額を増やしたい</span>
+      </div>
+      <div class="concern-card fade-in">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>保険料が高い気がするが、自分では判断できない</span>
+      </div>
+      <div class="concern-card fade-in">
+        <i class="fa-solid fa-hand-holding-dollar"></i>
+        <span>退職金・相続金をどう活用すればいいかわからない</span>
+      </div>
+      <div class="concern-card fade-in">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span>副業収入を増やして、NISAの積立金額を増やしたい</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICE ═══ -->
+<section id="service" class="section">
+  <div class="container">
+    <h2 class="section-title fade-in">NISAのお悩みは「5つのお金の力」と繋がっています</h2>
+    <p class="section-sub fade-in">
+      一般的なFP相談は「貯める・増やす・守る」の3つまで。<br>
+      みやFPなら、「稼ぐ力」「使う力」を含む5つすべてに対応できます。<br>
+      副業で月5万円を達成した実体験、価値観に寄り添うライフプラン設計——<br>
+      これがみやFPだけにできる、本物のトータルサポートです。
+    </p>
+    <div class="service-cards">
+      <div class="service-card fade-in">
+        <div class="service-icon">👛</div>
+        <h3>貯める力</h3>
+        <p>家計の何を節約して投資に回す？</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">⛑️</div>
+        <h3>守る力</h3>
+        <p>保険・住宅ローン・リスク管理</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">💸</div>
+        <h3>使う力</h3>
+        <p>未来への投資 or 今の豊かさ、優先は？</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🦁</div>
+        <h3>稼ぐ力</h3>
+        <p>副業・事業収入を増やしたい。YouTubeで月5万円の副業収入を達成した実体験から、リアルなアドバイスをお届けします。</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">📈</div>
+        <h3>増やす力</h3>
+        <p>NISA・iDeCo・高配当株・成長投資枠</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PHILOSOPHY ═══ -->
+<section id="philosophy">
+  <div class="container">
+    <p class="philosophy-label fade-in">Our Philosophy</p>
+    <h2 class="section-title fade-in">GFP｜ジェニウェン ファイナンシャルプランナー</h2>
+    <p class="section-sub fade-in">Genuine＝心からの・純粋な・正真正銘</p>
+    <div class="philosophy-cards">
+      <div class="philosophy-card fade-in">
+        <div class="num">1</div>
+        <h3>心から寄り添うFP</h3>
+        <p>価値観に沿って、NISAを取り巻く家計・保険・iDeCoの全体像を丁寧に整理します。あなたの状況を起点に考えます。</p>
+      </div>
+      <div class="philosophy-card fade-in">
+        <div class="num">2</div>
+        <h3>純粋に資産設計に集中</h3>
+        <p>保険・商品セールスは一切行わず、相談者の悩み解決のみを目的とします。中立な立場だからこそ言える、本音のアドバイスを届けます。</p>
+      </div>
+      <div class="philosophy-card fade-in">
+        <div class="num">3</div>
+        <h3>人生の「目的・目標」を一緒に見つける本物のFP</h3>
+        <p>出口戦略まで設計し、目的地までシミュレーションして目標を見出します。投資の相談ではなく、人生の相談ができるFPです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ACHIEVEMENT ═══ -->
+<section id="achievement" class="section">
+  <div class="container">
+    <h2 class="section-title fade-in">実績・選ばれる理由</h2>
+    <p class="section-sub fade-in">数字と体験が、みやFPへの信頼の根拠です。</p>
+    <div class="stats-grid">
+      <div class="stat-card fade-in">
+        <div class="stat-num">400<span style="font-size:1.4rem">名+</span></div>
+        <div class="stat-label">FP相談実績</div>
+      </div>
+      <div class="stat-card fade-in">
+        <div class="stat-num">1,300<span style="font-size:1.4rem">本+</span></div>
+        <div class="stat-label">YouTube投稿本数</div>
+      </div>
+      <div class="stat-card fade-in">
+        <div class="stat-num" style="font-size:clamp(1.5rem,3vw,2.2rem);">月5万円節約</div>
+        <div class="stat-label">家計の見直しで達成</div>
+      </div>
+      <div class="stat-card fade-in">
+        <div class="stat-num" style="font-size:clamp(1.5rem,3vw,2.2rem);">月5万円</div>
+        <div class="stat-label">YouTube副業収入達成</div>
+      </div>
+    </div>
+    <div class="reasons-grid">
+      <div class="reason-card fade-in">
+        <i class="fa-solid fa-lock"></i>
+        <h3>販売・勧誘ゼロ</h3>
+        <p>独立系FPだから言える、あなたの味方だけの中立なアドバイス</p>
+      </div>
+      <div class="reason-card fade-in">
+        <i class="fa-solid fa-laptop"></i>
+        <h3>全国対応</h3>
+        <p>Zoom・対面どちらも可。海外在住の方もお気軽にどうぞ</p>
+      </div>
+      <div class="reason-card fade-in">
+        <i class="fa-brands fa-youtube"></i>
+        <h3>YouTubeで事前確認</h3>
+        <p>3年間・1,000本以上の動画で、話し方・実力を事前にチェックできます</p>
+      </div>
+    </div>
+    <div class="achievement-note fade-in">
+      <a href="https://coconala.com/services/3324688" target="_blank" rel="noopener noreferrer" class="btn-coconala">
+        <span class="btn-coconala-main"><i class="fa-solid fa-star"></i>ココナラの出品ページを見る</span>
+        <span class="btn-coconala-sub">（口コミ・評価はこちらから確認できます）</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VOICES ═══ -->
+<section id="voice" class="section">
+  <div class="container">
+    <h2 class="section-title fade-in">お客様の声</h2>
+    <p class="section-sub fade-in">ココナラ・リベシティ合計 ★5.0 / 17件 全員最高評価</p>
+    <div class="voices-grid">
+      <div class="voice-card fade-in">
+        <div class="voice-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">2度目のご依頼ですが、1度目と同様、みやさんのお人柄と親切に教えていただける姿勢にとても安心しながら設定を行うことができました！無事に投資をスタートすることができた記念日になりました！</p>
+        <p class="voice-author">─ リピーターの方（ココナラ）</p>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="voice-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">お金の面だけでなく、「より良い生活や生き方」に焦点を当てた視点でアドバイスしてくださったのがとてもありがたかったです。今後の目標がより明確になり、行動に移しやすくなりました</p>
+        <p class="voice-author">─ 男性（サイドFIRE相談・ココナラ）</p>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="voice-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">漠然とした不安を、数字にしてもらうことでかなり明確にライフプランを立てることができました。このお値段でここまで親身に細やかにまとめて頂いたことに感謝しかないです</p>
+        <p class="voice-author">─ 海外在住の方</p>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="voice-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">zoomの録画と要点まとめのPDFも、見返して確認できるので有り難い限りです。最初にやることも明確にできました</p>
+        <p class="voice-author">─ ご利用者様（ココナラ）</p>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="voice-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">話しやすい雰囲気で、とても丁寧に相談に乗っていただけました。相談内容は後から確認できるように資料としてご提供いただけたので、理解しやすかったです</p>
+        <p class="voice-author">─ ご利用者様（ココナラ）</p>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="voice-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">1年以上悩んでいたことがスッキリして本当にうれしいです！（教育費を親名義か子ども口座か、ずっと悩んでいた）</p>
+        <p class="voice-author">─ 男性</p>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="voice-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">とても親身になってお話いただいて、半分人生相談になっていました。年始から行動していきます！</p>
+        <p class="voice-author">─ ご利用者様</p>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="voice-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">とても熱心に考えてくださり、感謝！感謝です。お話しやすくオススメです♡ 今、できることを見つけていきます</p>
+        <p class="voice-author">─ ご利用者様</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROFILE ═══ -->
+<section id="profile" class="section">
+  <div class="container">
+    <h2 class="section-title fade-in">プロフィール</h2>
+    <div class="profile-inner fade-in">
+      <div class="profile-photo-wrap">
+        <img
+          src="img/profile.jpg"
+          alt="みやFP 宮雅士"
+          class="profile-img"
+          id="profile-img"
+        >
+        <div class="profile-avatar" id="profile-avatar">宮</div>
+      </div>
+      <div class="profile-text">
+        <p class="profile-name">みやFP｜宮 雅士（みや まさし）</p>
+        <p class="profile-title">
+          NISAお悩み研究所 代表<br>
+          GFP｜ジェニウェン ファイナンシャルプランナー
+        </p>
+        <p class="profile-quote">
+          「NISAを知って、お金の不安が消えました。<br>
+          　次は、あなたの番です。」
+        </p>
+        <div class="profile-story">
+          <p>工業高校を卒業後、電気施工管理の現場監督として働いていました。仕事には充実感がありましたが、赤字家計という現実がありました。</p>
+          <p>30歳のとき、<a href="https://www.youtube.com/@ryogakucho" target="_blank" rel="noopener noreferrer">リベ大</a>のNISA動画に出会い「お金って増えるんだ！」と衝撃を受けます。</p>
+          <p>そこからお金を猛勉強。<br>
+          <span class="highlight">① 家計改善で月5万円を捻出<br>
+          ② YouTubeで発信を始め、10ヶ月で月5万円の副収入<br>
+          ③ 合計月10万円をNISAに積立 → 3年で1,000万円達成</span>
+          </p>
+          <p>この体験を活かして金融業界に転職し、2024年にNISAお悩み研究所を開業。現在は300名以上のFP相談をお受けしています。</p>
+          <p>保険会社・証券会社には属さない独立系FPとして、販売・勧誘は一切行いません。「投資の相談」ではなく「人生の相談」ができるFPです。</p>
+          <p><strong>大丈夫、きっとうまくいく。</strong></p>
+        </div>
+        <ul class="qualifications">
+          <li><span>🔸</span>2級ファイナンシャル・プランニング技能士</li>
+          <li><span>🔸</span>生命保険募集人（一般・専門・変額・外貨）</li>
+          <li><span>🔸</span>損害保険募集人（基礎・自動車・火災・傷害）</li>
+          <li><span>🔸</span>一種外務員資格（ほぼ全金融商品取扱可能）</li>
+          <li><span>🔸</span>第一種電気工事士／1級電気施工管理技士</li>
+          <li><span>🐯</span><a href="https://libecity.com/user_profile/ko6WcAW4kVbncEpE4VxFuePcG672" target="_blank" rel="noopener noreferrer" style="color:var(--navy);font-weight:500;">リベシティ トラ会員</a></li>
+        </ul>
+        <a href="https://www.youtube.com/@NISA-2024-TV" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+          <i class="fa-brands fa-youtube"></i> YouTubeチャンネルを見る
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq" class="section">
+  <div class="container">
+    <h2 class="section-title fade-in">よくあるご質問</h2>
+    <p class="section-sub fade-in">ご相談前に気になること、お答えします。</p>
+    <div class="faq-list fade-in">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>20年後の資産シミュレーションはできますか？</span>
+          <i class="fa-solid fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          はい、可能です。教育資金・住宅購入などライフイベント費用も含めて試算し、解説後にPDFでお渡しします。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>出口戦略で手取り額が変わるって本当？</span>
+          <i class="fa-solid fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          はい。どの口座から・どの順番・タイミングで取り崩すかで手取りが変わります。老後の資金効率を向上できるよう一緒に考えます。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>高配当株や米国ETFもNISAでした方がいい？</span>
+          <i class="fa-solid fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          目的・期間によって答えが変わります。「いつまで働くか？」あなたの状況をお聞かせください。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>退職金・相続金・保険満期金はNISA運用すべき？</span>
+          <i class="fa-solid fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          「使う時期」を見極めた上で合う方法を選択するのが基本。長期投資できるのであれば、NISAも良い選択肢です。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>まとまった資金は一括投資か積立投資かどちらがいい？</span>
+          <i class="fa-solid fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          目的・金額・時期によって変わります。あなたの状況をヒアリングした上で最適な方法をご提案します。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>サイドFIRE・FIREを目指しているが、どんな計画を立てればいい？</span>
+          <i class="fa-solid fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          現在の資産・収入・生活費をもとに、目標達成までのロードマップを一緒にシミュレーションします。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>副業についても相談できますか？</span>
+          <i class="fa-solid fa-plus faq-icon"></i>
+        </div>
+        <div class="faq-answer">
+          はい、対応可能です。私自身がYouTubeを始めて約10ヶ月で月5万円の副業収入を達成した経験があります。副業の始め方から、収入をNISAに回す仕組みづくりまで、実体験をもとにアドバイスします。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PRICE ═══ -->
+<section id="price" class="section">
+  <div class="container">
+    <h2 class="section-title fade-in">料金プラン</h2>
+    <p class="section-sub fade-in">詳しい内容・ご不明な点はお気軽にご相談ください</p>
+    <div class="price-cards">
+      <div class="price-card fade-in">
+        <div class="price-card-body">
+          <p class="price-sub">まずはここから</p>
+          <p class="price-title">スポット相談</p>
+          <div class="price-amount">
+            <span class="price-num">7,000円</span>
+            <span class="price-unit">／60分</span>
+          </div>
+          <p class="price-note-small">※ご相談内容により延長可（15分＋1,000円）</p>
+          <ul class="price-list">
+            <li>NISAや家計など単発でのご相談</li>
+            <li>要点まとめPDF（後日お渡し）</li>
+            <li>Zoom録画データお渡し</li>
+            <li>オンライン・対面どちらも可</li>
+            <li style="color:#e57373;font-size:0.8rem;">※対面の場合は別途出張費用が発生します</li>
+          </ul>
+          <a href="#contact" class="btn-price">まずは相談してみる</a>
+        </div>
+      </div>
+      <div class="price-card featured fade-in">
+        <div class="price-badge">人気 No.1</div>
+        <div class="price-card-body">
+          <p class="price-sub">1ヶ月集中コース</p>
+          <p class="price-title">伴走型プラン</p>
+          <div class="price-amount">
+            <span class="price-num">25,000円〜</span>
+            <span class="price-unit">／月</span>
+          </div>
+          <p class="price-note-small">※詳しい内容はお問い合わせください</p>
+          <ul class="price-list">
+            <li>月2回の個別相談（各60分）</li>
+            <li>チャットサポート（平日）</li>
+            <li>ライフプラン・資産設計シート作成</li>
+            <li>要点まとめPDF（毎回お渡し）</li>
+            <li>オンライン・対面どちらも可</li>
+            <li style="color:#e57373;font-size:0.8rem;">※対面の場合は別途出張費用が発生します</li>
+          </ul>
+          <a href="#contact" class="btn-price">詳しく相談する</a>
+        </div>
+      </div>
+      <div class="price-card fade-in">
+        <div class="price-card-body">
+          <p class="price-sub">3ヶ月じっくりコース</p>
+          <p class="price-title">伴走型プラン</p>
+          <div class="price-amount">
+            <span class="price-num">65,000円〜</span>
+            <span class="price-unit">／3ヶ月</span>
+          </div>
+          <p class="price-note-small">※1ヶ月プランより約8,000円お得　※詳しい内容はお問い合わせください</p>
+          <ul class="price-list">
+            <li>月2回の個別相談×3ヶ月（計6回・各60分）</li>
+            <li>チャットサポート（平日・3ヶ月間）</li>
+            <li>ライフプラン・資産設計シート作成</li>
+            <li>要点まとめPDF（毎回お渡し）</li>
+            <li>20年シミュレーションPDF作成</li>
+            <li>オンライン・対面どちらも可</li>
+            <li style="color:#e57373;font-size:0.8rem;">※対面の場合は別途出張費用が発生します</li>
+          </ul>
+          <a href="#contact" class="btn-price">詳しく相談する</a>
+        </div>
+      </div>
+    </div>
+    <p class="price-notes fade-in">
+      ※料金はすべて税込表示です<br>
+      ※ご相談内容・状況により料金が変わる場合があります。まずはお気軽にお問い合わせください<br>
+      ※投資に絶対はありません。シミュレーションはあくまで予測であり、個人の状況により変化します
+    </p>
+    <div class="price-cta fade-in">
+      <p>どのプランが自分に合うか迷ったら、<br>まずはお気軽にご相談ください。一緒に最適なプランを考えます。</p>
+      <a href="#contact" class="btn-price-white">無料でお問い合わせする</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="section-title fade-in">まずはお気軽にご相談ください</h2>
+    <p class="contact-lead fade-in">
+      料金・相談方法など、まずはお問い合わせいただければ丁寧にご案内します。<br>
+      秘密は厳守。勧誘は一切ありません。大丈夫、きっとうまくいきます。
+    </p>
+    <div class="form-wrap fade-in">
+      <form id="contact-form" action="https://formspree.io/f/mzdklrqd" method="POST">
+        <div class="form-group">
+          <label class="form-label" for="name">
+            お名前<span class="required">必須</span>
+          </label>
+          <input type="text" id="name" name="name" class="form-input" placeholder="例：山田 太郎">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">
+            メールアドレス<span class="required">必須</span>
+          </label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="例：example@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="category">
+            相談内容<span class="required">必須</span>
+          </label>
+          <div class="form-select-wrap">
+            <select id="category" name="category" class="form-select">
+              <option value="">選択してください</option>
+              <option value="nisa_ideco">NISA・iDeCo</option>
+              <option value="retirement">老後資金・年金</option>
+              <option value="housing">住宅購入・ローン</option>
+              <option value="insurance">保険見直し</option>
+              <option value="household">家計改善・節約</option>
+              <option value="inheritance">相続・贈与</option>
+              <option value="fire">サイドFIRE・FIRE</option>
+              <option value="side_business">副業・稼ぐ力の相談</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">
+            ご質問・ご要望<span class="optional">任意</span>
+          </label>
+          <textarea id="message" name="message" class="form-textarea" rows="4" placeholder="ご自由にお書きください"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">送信する →</button>
+      </form>
+      <p class="contact-privacy">
+        <i class="fa-solid fa-shield-halved"></i>個人情報は厳重に管理し、第三者への提供は一切行いません
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="site-footer">
+  <p class="footer-name">NISAお悩み研究所｜みやFP｜宮雅士</p>
+  <ul class="footer-nav">
+    <li><a href="#service">サービス</a></li>
+    <li><a href="#achievement">実績</a></li>
+    <li><a href="#profile">プロフィール</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 NISAお悩み研究所 みやFP｜宮雅士 All Rights Reserved.</p>
+</footer>
+
+<script>
+  // ─── Hamburger Menu ───
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
+
+  // ─── FAQ Accordion ───
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      const answer = question.nextElementSibling;
+      const isOpen = question.classList.contains('open');
+
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.classList.remove('open');
+        q.nextElementSibling.classList.remove('open');
+      });
+
+      if (!isOpen) {
+        question.classList.add('open');
+        answer.classList.add('open');
+      }
+    });
+  });
+
+  // ─── IntersectionObserver Fade-in ───
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ─── Profile Image Fallback ───
+  const profileImg = document.getElementById('profile-img');
+  const profileAvatar = document.getElementById('profile-avatar');
+
+  profileImg.addEventListener('error', () => {
+    profileImg.style.display = 'none';
+    profileAvatar.style.display = 'flex';
+  });
+
+  // ─── Form Validation ───
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const category = document.getElementById('category').value;
+
+    if (!name) {
+      alert('お名前を入力してください。');
+      document.getElementById('name').focus();
+      return;
+    }
+    if (!email) {
+      alert('メールアドレスを入力してください。');
+      document.getElementById('email').focus();
+      return;
+    }
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert('正しいメールアドレスを入力してください。');
+      document.getElementById('email').focus();
+      return;
+    }
+    if (!category) {
+      alert('相談内容を選択してください。');
+      document.getElementById('category').focus();
+      return;
+    }
+
+    this.submit();
+  });
+</script>
+</body>
+</html>
