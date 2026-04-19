@@ -760,9 +760,47 @@
 
     /* ─── Responsive ─── */
     @media (max-width: 768px) {
+      /* ── 修正⑤：全体余白 ── */
+      .container { padding: 0 16px; }
       .section { padding: 64px 0; }
       .header-nav { display: none; }
       .hamburger { display: flex; }
+
+      /* ── 修正②：孤立ワード防止 ── */
+      p, li, span {
+        line-break: strict;
+        overflow-wrap: break-word;
+        word-break: keep-all;
+      }
+
+      /* ── 修正④：長文テキストを左寄せ ── */
+      .section-sub { text-align: left; padding: 0 4px; }
+      .concern-card { text-align: left; }
+      .philosophy-card p { text-align: left; }
+      .reason-card p { text-align: left; }
+      .voice-text { text-align: left; }
+      .contact-lead { text-align: left; }
+      .faq-answer { text-align: left; }
+      .corporate-lead { text-align: left; }
+      .corporate-solution p { text-align: left; }
+      .corporate-msg { text-align: left; }
+      .win-desc { text-align: left; }
+      .price-notes { text-align: left; }
+      .price-cta p { text-align: left; }
+
+      /* ── 修正③：5つのお金の力 サブ文 ── */
+      #service .section-sub {
+        text-align: left;
+        max-width: 100%;
+        padding: 0 4px;
+      }
+
+      /* ── 修正①：プロフィール本文を左寄せ ── */
+      .profile-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .profile-photo-wrap { display: flex; justify-content: center; }
+      .profile-story { text-align: left; }
+      .profile-story p { text-align: left; }
+      .profile-quote { text-align: left; }
 
       .concerns-grid { grid-template-columns: repeat(2, 1fr); }
       .service-cards { gap: 12px; }
@@ -771,10 +809,7 @@
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .reasons-grid { grid-template-columns: 1fr; }
       .voices-grid { grid-template-columns: 1fr; }
-      .profile-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
-      .profile-photo-wrap { display: flex; justify-content: center; }
-      .profile-quote { text-align: left; }
-      .form-wrap { padding: 28px 20px; }
+      .form-wrap { padding: 28px 16px; }
       .footer-nav { gap: 16px; }
     }
 
