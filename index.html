@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>NISAお悩み研究所｜みやFP相談</title>
   <meta name="description" content="東京都江戸川区を拠点とする独立系FP・みやFPのNISA相談。赤字家計から3年で1,000万円を達成した実体験をもとに、NISA・家計改善・老後資金・保険見直しをトータルでサポート。江戸川区・東京東部エリアの対面相談も歓迎。販売勧誘なし・全国対応。">
   <meta property="og:title" content="NISAお悩み研究所｜みやFP相談">
@@ -17,6 +17,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      width: 100%;
+      overflow-x: hidden;
+    }
 
     :root {
       --navy: #1e3a5f;
@@ -38,6 +43,8 @@
       color: var(--text);
       line-height: 1.8;
       background: var(--white);
+      width: 100%;
+      overflow-x: hidden;
     }
 
     /* ─── Utility ─── */
@@ -760,48 +767,113 @@
 
     /* ─── Responsive ─── */
     @media (max-width: 768px) {
-      /* ── 修正⑤：全体余白 ── */
-      .container { padding: 0 16px; }
-      .section { padding: 64px 0; }
-      .header-nav { display: none; }
-      .hamburger { display: flex; }
 
-      /* ── 修正②：孤立ワード防止 ── */
+      /* ── ベース：全幅・余白 ── */
+      .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      section, .section {
+        width: 100%;
+        padding: 60px 16px;
+      }
+
+      /* ── ヘッダー修正⑤ ── */
+      #site-header { width: 100%; }
+      .header-inner { padding: 0 20px; width: 100%; }
+      .header-nav { display: none; }
+      .hamburger { display: flex; margin-left: auto; }
+
+      /* ── ヒーロー修正④ ── */
+      #hero {
+        width: 100%;
+        padding: 100px 20px 60px;
+      }
+      .hero-sub {
+        max-width: 100%;
+        text-align: left;
+      }
+
+      /* ── 孤立ワード防止 ── */
       p, li, span {
         line-break: strict;
         overflow-wrap: break-word;
         word-break: keep-all;
       }
 
-      /* ── 修正④：長文テキストを左寄せ ── */
-      .section-sub { text-align: left; padding: 0 4px; }
+      /* ── 修正①：テキスト配置統一 ── */
+      /* 中央寄せ：タイトル・数字・カードタイトル */
+      .section-title { text-align: center; }
+      .stat-card { text-align: center; }
+      .reason-card { text-align: center; }
+      .reason-card h3 { text-align: center; }
+      .service-card { text-align: center; }
+      .philosophy-card { text-align: center; }
+      .win-item { text-align: center; }
+      .win-label { text-align: center; }
+      .win-center { text-align: center; }
+      .corporate-card { text-align: center; }
+      .corporate-card h4 { text-align: center; }
+
+      /* 左寄せ：長文説明文 */
+      .section-sub { text-align: left; padding: 0; }
+      #service .section-sub { text-align: left; max-width: 100%; }
       .concern-card { text-align: left; }
       .philosophy-card p { text-align: left; }
       .reason-card p { text-align: left; }
       .voice-text { text-align: left; }
       .contact-lead { text-align: left; }
       .faq-answer { text-align: left; }
-      .corporate-lead { text-align: left; }
-      .corporate-solution p { text-align: left; }
-      .corporate-msg { text-align: left; }
-      .win-desc { text-align: left; }
+      .price-list li { text-align: left; }
       .price-notes { text-align: left; }
       .price-cta p { text-align: left; }
 
-      /* ── 修正③：5つのお金の力 サブ文 ── */
-      #service .section-sub {
-        text-align: left;
-        max-width: 100%;
-        padding: 0 4px;
-      }
-
-      /* ── 修正①：プロフィール本文を左寄せ ── */
+      /* ── プロフィール ── */
       .profile-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
       .profile-photo-wrap { display: flex; justify-content: center; }
       .profile-story { text-align: left; }
       .profile-story p { text-align: left; }
       .profile-quote { text-align: left; }
 
+      /* ── 修正③：社内FP制度 ── */
+      .corporate-lead {
+        text-align: left;
+        padding: 24px 20px;
+      }
+      .corporate-lead p { text-align: left; }
+      .corporate-solution {
+        text-align: left;
+        padding: 28px 20px;
+      }
+      .corporate-solution p { text-align: left; }
+      .corporate-msg { text-align: left; padding: 0 20px; }
+      .corporate-note { text-align: left; padding: 0 20px; }
+      .corporate-cards { grid-template-columns: 1fr; }
+
+      /* ── 修正②：Win-Win-Win ── */
+      .corporate-win {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 0 24px;
+        margin-bottom: 40px !important;
+        margin-top: 0 !important;
+      }
+      .win-item {
+        text-align: center;
+        width: 100%;
+      }
+      .win-desc { text-align: center; }
+      .win-center {
+        order: -1;
+        text-align: center;
+        width: 100%;
+      }
+
+      /* ── グリッド系 ── */
       .concerns-grid { grid-template-columns: repeat(2, 1fr); }
       .service-cards { gap: 12px; }
       .service-card { max-width: none; flex: 1 1 140px; }
@@ -809,6 +881,12 @@
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .reasons-grid { grid-template-columns: 1fr; }
       .voices-grid { grid-template-columns: 1fr; }
+
+      /* ── 修正⑥：カード全幅 ── */
+      .voice-card, .price-card {
+        width: 100%;
+        margin: 0 0 16px 0;
+      }
       .form-wrap { padding: 28px 16px; }
       .footer-nav { gap: 16px; }
     }
@@ -927,7 +1005,8 @@
     }
     .btn-price-white:hover { opacity: 0.9; transform: translateY(-2px); }
     @media (max-width: 768px) {
-      .price-cards { grid-template-columns: 1fr; }
+      .price-cards { grid-template-columns: 1fr; gap: 16px; }
+      .price-card { width: 100%; }
       .price-card.featured { transform: scale(1); }
       .price-card.featured:hover { transform: translateY(-4px); }
     }
