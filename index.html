@@ -602,6 +602,129 @@
     }
     .contact-privacy i { margin-right: 4px; }
 
+    /* ─── Corporate ─── */
+    #corporate { background: var(--navy); color: var(--white); }
+    #corporate .section-title { color: var(--white); }
+    #corporate .section-sub { color: rgba(255,255,255,0.75); }
+    .corporate-lead {
+      background: var(--white);
+      color: var(--navy);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      max-width: 740px;
+      margin: 0 auto 56px;
+      line-height: 2;
+      font-size: 1rem;
+    }
+    .corporate-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .corporate-card {
+      background: var(--white);
+      color: var(--navy);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .corporate-card i {
+      font-size: 2rem;
+      color: var(--navy);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .corporate-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--navy);
+    }
+    .corporate-card p { font-size: 0.88rem; line-height: 1.8; color: var(--text); }
+    .corporate-solution {
+      background: var(--white);
+      color: var(--navy);
+      border-radius: var(--radius);
+      padding: 40px;
+      max-width: 740px;
+      margin: 0 auto 56px;
+      text-align: center;
+    }
+    .corporate-solution h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+    .corporate-solution p { line-height: 2; font-size: 0.95rem; color: var(--text); }
+    .corporate-win {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0 16px;
+      align-items: center;
+      margin-bottom: 56px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .corporate-win-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .win-item { text-align: center; }
+    .win-icon {
+      width: 64px; height: 64px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 12px;
+    }
+    .win-icon i { font-size: 1.5rem; color: var(--navy); }
+    .win-label { font-weight: 700; font-size: 1rem; color: var(--white); margin-bottom: 8px; }
+    .win-desc { font-size: 0.82rem; color: rgba(255,255,255,0.8); line-height: 1.7; }
+    .win-center { text-align: center; }
+    .win-win-win {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .corporate-cta { text-align: center; }
+    .corporate-note {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 20px;
+    }
+    .corporate-msg {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+    .btn-corporate {
+      display: inline-block;
+      background: var(--white);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-corporate:hover { opacity: 0.88; transform: translateY(-2px); }
+    @media (max-width: 768px) {
+      .corporate-cards { grid-template-columns: 1fr; }
+      .corporate-win { grid-template-columns: 1fr; gap: 24px; }
+      .corporate-lead { padding: 24px 20px; }
+      .corporate-solution { padding: 28px 20px; }
+    }
+
     /* ─── Footer ─── */
     #site-footer {
       background: var(--navy);
@@ -787,6 +910,7 @@
         <li><a href="#achievement">実績</a></li>
         <li><a href="#profile">プロフィール</a></li>
         <li><a href="#price">料金</a></li>
+        <li><a href="#corporate">社内FP制度</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">お問い合わせ</a></li>
       </ul>
@@ -800,6 +924,7 @@
     <a href="#achievement" class="mobile-link">実績</a>
     <a href="#profile" class="mobile-link">プロフィール</a>
     <a href="#price" class="mobile-link">料金</a>
+    <a href="#corporate" class="mobile-link">社内FP制度</a>
     <a href="#faq" class="mobile-link">FAQ</a>
     <a href="#contact" class="mobile-link">お問い合わせ</a>
   </nav>
@@ -1244,6 +1369,97 @@
   </div>
 </section>
 
+<!-- ═══ CORPORATE ═══ -->
+<section id="corporate" class="section">
+  <div class="container">
+    <h2 class="section-title fade-in">社内FP制度</h2>
+    <p class="section-sub fade-in">福利厚生としての社員向け金融教育</p>
+
+    <!-- ① リード文 -->
+    <div class="corporate-lead fade-in">
+      <p>お金の相談をしたい人ほど、お金がない。<br>
+      だから有料相談には行けず、『無料相談』に足を運んでしまう。</p>
+      <br>
+      <p>その結果、本人にとって本当に必要とは言えない<br>
+      投資商品や保険を勧められ、さらにお金を失い——<br>
+      『やっぱりお金の話は怖い』と感じてしまう。</p>
+      <br>
+      <p>私は、この負のスパイラルを<br>
+      個人の努力や知識不足の問題だとは思っていません。<br>
+      これは、日本の構造的な問題だと感じています。</p>
+    </div>
+
+    <!-- ② 問題提起カード -->
+    <div class="corporate-cards fade-in">
+      <div class="corporate-card">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h4>学校では教わらない</h4>
+        <p>NISA・家計管理・ライフプランは<br>生きるための基礎教養のはず。<br>しかし学校教育には含まれていません。</p>
+      </div>
+      <div class="corporate-card">
+        <i class="fa-solid fa-building"></i>
+        <h4>社会に出ても学べない</h4>
+        <p>社会人になっても<br>お金を正しく学ぶ機会はほとんどなく<br>困ったときだけ『無料相談』に頼らざるを得ません。</p>
+      </div>
+      <div class="corporate-card">
+        <i class="fa-solid fa-skull-crossbones"></i>
+        <h4>『毒キノコ』の罠</h4>
+        <p>無料相談の裏には商品販売があり<br>必要のない保険・投資商品を勧められ<br>さらにお金を失うケースが後を絶ちません。</p>
+      </div>
+    </div>
+
+    <!-- ③ 解決策 -->
+    <div class="corporate-solution fade-in">
+      <h3>その答えが、社内FP制度です。</h3>
+      <p>企業が福利厚生として金融教育を提供できれば<br>
+      社員は『売られる前提』ではなく<br>
+      中立的な立場で正しい知識を学ぶことができます。<br><br>
+      社員の将来不安が減れば<br>
+      安心して仕事に集中できるようになり<br>
+      結果として<br>
+      企業の定着率・満足度の向上にもつながります。<br><br>
+      私は、その橋渡し役として<br>
+      金融教育を『怪しいもの』ではなく<br>
+      当たり前の福利厚生にしていきたいと考えています。</p>
+    </div>
+
+    <!-- ④ 三方良し -->
+    <div class="corporate-win fade-in">
+      <div class="win-item">
+        <div class="win-icon"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="win-label">社員</div>
+        <div class="win-desc">中立な知識で将来不安が解消される</div>
+      </div>
+      <div class="win-center">
+        <div class="win-win-win">Win-Win-Win</div>
+      </div>
+      <div class="win-item">
+        <div class="win-icon"><i class="fa-solid fa-building"></i></div>
+        <div class="win-label">企業</div>
+        <div class="win-desc">定着率・満足度・生産性の向上につながる</div>
+      </div>
+    </div>
+    <div class="corporate-win fade-in" style="margin-top:-24px;margin-bottom:56px;">
+      <div></div>
+      <div class="win-item">
+        <div class="win-icon"><i class="fa-solid fa-handshake"></i></div>
+        <div class="win-label">みやFP</div>
+        <div class="win-desc">中立なFPとして本物の価値を届けられる</div>
+      </div>
+      <div></div>
+    </div>
+
+    <!-- ⑤ CTA -->
+    <div class="corporate-cta fade-in">
+      <p class="corporate-note">※現在、社内FP制度は構想・準備フェーズです。<br>まだ実践前ですが、本気で形にしていきます。</p>
+      <p class="corporate-msg">この想いに共感してくださる企業様・担当者様<br>
+      ぜひお気軽にお問い合わせください。<br>
+      一緒に、新しい当たり前をつくりましょう。</p>
+      <a href="#contact" class="btn-corporate">お問い合わせ・ご相談はこちら</a>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ CONTACT ═══ -->
 <section id="contact" class="section">
   <div class="container">
@@ -1324,6 +1540,7 @@
     <li><a href="#service">サービス</a></li>
     <li><a href="#achievement">実績</a></li>
     <li><a href="#profile">プロフィール</a></li>
+    <li><a href="#corporate">社内FP制度</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
   </ul>
